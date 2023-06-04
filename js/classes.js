@@ -8,7 +8,7 @@ function User(username, pass, ho, ten, email, products, donhang) {
 	this.products = products || [];
 	this.donhang = donhang || [];
 }
-
+//
 function equalUser(u1, u2) {
 	return (u1.username == u2.username && u1.pass == u2.pass);
 }

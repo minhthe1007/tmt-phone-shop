@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Giới thiệu - Thế giới điện thoại</title>
     <link rel="shortcut icon" href="img/favicon1.ico" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
     <!-- Load font awesome icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -24,46 +25,54 @@
     <!-- js -->
     <script src="data/products.js"></script>
 	<script src="js/dungchung.js"></script>
-    <script>
-        window.onload = function () {
-            khoiTao();
-            // thêm tags (từ khóa) vào khung tìm kiếm
-            var tags = ["Samsung", "iPhone", "Huawei", "Oppo", "Mobi"];
-            for (var t of tags) addTags(t, "index.html?search=" + t);
-        }
-    </script>
+    
 
 </head>
 
 <body>
-    <script> addTopNav();</script>
 
-    <section style="min-height: 85vh">
-        <script> addHeader(); </script>
+    <script> addTopNav(); </script>
 
-        <div class="page-gt">
-            <h4 class="page-header">
-                Giới thiệu
-            </h4>
-            <div class="page-info">
-                <p> MSSV: 2201200014 <br>
-                    Họ tên: Trịnh Minh Thế <br>
-                    Giới tính: Nam
-                </p>
-                <br />
-                <p>
-                    Trạng thái: Đang học <br> Mã hồ sơ: 2201200014 <br> Ngày vào trường: 21/1/2021 <br>
-                    Lớp học: 10DHLTH1 <br> Cơ sở: CNTP TP.HCM <br>
-                    Bậc đào tạo: Đại học <br> Loại hình đào tạo: liên thông <br>
-                    Khoa: Khoa Công nghệ Thông tin <br> Ngành: Công nghệ thông tin_DH <br>
-                    Chuyên ngành: Công nghệ phần mềm <br> Khóa học: 2020
-                </p>
-            </div>
-        </div>
-    </section>
+	<section style="min-height: 85vh">
+		<script> addHeader(); </script>
+		<div class="container py-5">
+			<div class="row text-center pt-5 pb-3">
+				<div class="col-lg-6 m-auto">
+					<h1 class="h1" style="font-weight:600!important; color: red;">GIỚI THIỆU</h1>
+				</div>
+			</div>
+			<div class="row py-5">   
+				<table class="table table-bordered">
+					<tr class="text-center">
+						<th>MSSV</th>
+						<th>Họ tên</th>
+						<th>Lớp</th>
+						<th>Khoa</th>
+						<th>Khóa học</th>
+					</tr>
+					<tr class="text-center">
+						<td>2201200014</td>
+						<td>Trịnh Minh Thế</td>
+						<td>10DHLTH1</td>
+                        <td>Công nghệ thông tin</td>
+                        <td>2020 - 2022</td>
+					</tr>
+					
+				</table>
+			</div>
+		</div>
+		
+	</section> <!-- End Section -->
 
-    <script> addContainTaiKhoan(); </script>
+	<script>
+		addContainTaiKhoan();
+	</script>
 
+	
+
+	<i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+    
     <div class="footer">
         <script>addFooter();</script>
         

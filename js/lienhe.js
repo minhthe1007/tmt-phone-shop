@@ -5,7 +5,7 @@ window.onload = function () {
     var tags = ["Samsung", "iPhone", "Huawei", "Oppo", "Mobi"];
     for (var t of tags) addTags(t, "index.html?search=" + t);
 }
-
+//
 function nguoidung() {
     //kiem tra ho ten
     var hoten = document.formlh.ht.value;

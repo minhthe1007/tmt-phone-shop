@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="shortcut icon" href="img/favicon1.ico" />
-
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<title>Thế giới điện thoại</title>
 
 	<!-- Load font awesome icons -->
@@ -34,8 +34,47 @@
 
 	<section style="min-height: 85vh">
 		<script> addHeader(); </script>
-
-		<table class="listSanPham" > </table>
+		<div class="container py-5">
+			<div class="row text-center pt-5 pb-3">
+				<div class="col-lg-6 m-auto">
+					<h1 class="h1" style="font-weight:600!important; color: red;">THÔNG TIN GIỎ HÀNG</h1>
+				</div>
+			</div>
+			<div class="row py-5">   
+				<table class="table table-bordered">
+					<tr class="text-center" >
+						<th>Tên điện thoại</th>
+						<th>Hình ảnh</th>
+						<th>Giá bán</th>
+						<th>Số lượng mua</th>
+						<th>Thành tiền</th>
+					</tr>
+					<tr class="text-center" >
+						<td>Iphone 14 Pro Max</td>
+						<td><img src="https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-purple-1.jpg" width="180" /></td>
+						<td class="text-center"><input style="border: none;" id="tsp1" value="38900000" hidden />38.900.000 VNĐ</td> 
+						<td class="text-center">
+							<input type="number" id="ssp1" min="1" value="1" />
+						</td>
+						<td class="text-center"><input style="border: none;" id="sp1" /></td>
+					</tr>
+					<tr class="text-center">
+						<td>Samsung Galaxy Z Fold4 5G 256GB</td>
+						<td><img src="https://cdn.tgdd.vn/Products/Images/42/250625/samsung-galaxy-z-fold4-kem-256gb-600x600.jpg" width="180" /></td>
+						<td class="text-center"><input style="border: none;" id="tsp2" value="22000000" hidden />22.000.000 VNĐ</td> 
+						<td class="text-center">
+							<input type="number" id="ssp2" min="1" value="2"/>
+						</td>
+						<td class="text-center"><input style="border: none;" id="sp2" /></td>
+					</tr>
+					<tr style="font-weight:bold;text-align:left;color:red">
+						<td colspan="3"></td>
+						<td colspan="1">Số mua: <input id="tongsl" style="border:none"/></td>
+						<td colspan="4" class="text-center"><input style="border: none;" id="tong" /></td>
+					</tr>
+				</table>
+			</div>
+		</div>
 		
 	</section> <!-- End Section -->
 
@@ -46,6 +85,43 @@
 	<div class="footer"><script>addFooter();</script></div>
 
 	<i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
+	<script src="assets/js/jquery-1.11.0.min.js"></script>
+    
 </body>
 
 </html>
+<script>
+    function formatCurrency(price, symbol = "VNĐ") {
+        var DecimalSeparator = Number('1.2').toLocaleString().substr(1, 1);
+        var priceWithCommas = price.toLocaleString();
+        var arParts = String(priceWithCommas).split(DecimalSeparator);
+        var intPart = arParts[0];
+        var decPart = arParts.length > 1 ? arParts[1] : '';
+        decPart = (decPart + '00').substr(0, 2);
+        return intPart   + symbol;
+    }
+    $(document).ready(function () {
+        var ssp1 =parseInt($('#ssp1').val());
+        var ssp2 = parseInt($('#ssp2').val());
+        var tsp1 =parseInt($('#tsp1').val());
+        var tsp2 =parseInt($('#tsp2').val());
+        var tong = ssp1 + ssp2;
+        var tongtien = ssp1 * tsp1 + ssp2 * tsp2;
+        $('#sp1').val(formatCurrency(ssp1 * tsp1));
+        $('#sp2').val(formatCurrency(ssp2 * tsp2));
+        $('#tongsl').val(tong);
+        $('#tong').val(formatCurrency(tongtien));
+    });
+    $(":input").bind('keyup mouseup', function () {
+        var ssp1 = parseInt($('#ssp1').val());
+        var ssp2 = parseInt($('#ssp2').val());
+        var tsp1 = parseInt($('#tsp1').val());
+        var tsp2 = parseInt($('#tsp2').val());
+        var tong = ssp1 + ssp2;
+        var tongtien = ssp1 * tsp1 + ssp2 * tsp2;
+        $('#sp1').val(formatCurrency(ssp1 * tsp1));
+        $('#sp2').val(formatCurrency(ssp2 * tsp2));
+        $('#tongsl').val(tong);
+        $('#tong').val(formatCurrency(tongtien));
+    });
+</script>
